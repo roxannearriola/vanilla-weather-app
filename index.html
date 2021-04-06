@@ -22,6 +22,8 @@
 			crossorigin="anonymous"
 		></script>
 
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 		<link rel="stylesheet" href="src/style.css" />
 	</head>
 	<body>
@@ -48,12 +50,12 @@
 
 					<div class="summary-current-weather">
 						<div class="current-description">
-							<h2 id="current-temp-description">Partly cloudy</h2>
+							<h2 id="current-temp-description"></h2>
 						</div>
 
 						<div class="detail-current-weather">
 							<div class="current-weather-temp">
-								<h1 id="current-temp">5</h1>
+								<h1 id="current-temp"></h1>
 							</div>
 
 							<div class="current-weather-units">
@@ -67,7 +69,7 @@
 
 					<div class="current-details">
 						<ul>
-							<li id="city">Montreal, QC</li>
+							<li id="city"></li>
 							<li>
 								<span id="current-day">Tuesday</span> |
 								<span id="current-date">March 30</span> |
