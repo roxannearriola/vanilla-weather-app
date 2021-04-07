@@ -33,17 +33,17 @@ h2 {
 }
 
 small {
-	font-size: 13px;
+	font-size: 15px;
 }
 
 a {
-	color: white;
+	color: #61ecec;
 	text-decoration: none;
 	transition: all 150ms ease-in;
 }
 
 a:hover {
-	color: #30cfd0;
+	color: white;
 	cursor: pointer;
 }
 
@@ -124,6 +124,11 @@ footer a {
 #current-location {
 	background-color: transparent;
 	border: none;
+}
+
+#temp-units .active {
+	color: white;
+	cursor: default;
 }
 
 #city {

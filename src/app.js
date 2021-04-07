@@ -42,6 +42,9 @@ function displayTemperature(response) {
 	let descriptionElement = document.querySelector("#current-temp-description");
 	let cityElement = document.querySelector("#city");
 	let dateElement = document.querySelector("#current-date");
+
+	celsiusTemperature = response.data.main.temp;
+
 	tempElement.innerHTML = Math.round(response.data.main.temp);
 	descriptionElement.innerHTML = response.data.weather[0].description;
 	cityElement.innerHTML = response.data.name;
@@ -62,7 +65,32 @@ function handleSubmit(event) {
 	search(cityElement.value);
 }
 
-search("Montreal");
+function displayFahrenheitTemperature(event) {
+	event.preventDefault();
+	fahrenheitLink.classList.add("active");
+	celsiusLink.classList.remove("active");
+	let temperatureElement = document.querySelector("#current-temp");
+	let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+	temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+	event.preventDefault();
+	celsiusLink.classList.add("active");
+	fahrenheitLink.classList.remove("active");
+	let temperatureElement = document.querySelector("#current-temp");
+	temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Montreal");
