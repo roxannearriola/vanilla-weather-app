@@ -27,6 +27,7 @@ h1 {
 }
 
 h2 {
+	display: inline;
 	font-size: 25px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -124,6 +125,10 @@ footer a {
 #current-location {
 	background-color: transparent;
 	border: none;
+}
+
+#main-icon {
+	width: 75px;
 }
 
 #temp-units .active {
