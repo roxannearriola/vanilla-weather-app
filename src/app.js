@@ -48,9 +48,21 @@ function displayTemperature(response) {
 	dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
-let city = "Montreal";
-let apiKey = "b511e89f29c4deb143d80dc884ca0735";
-let units = "metric";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+function search(city) {
+	let apiKey = "b511e89f29c4deb143d80dc884ca0735";
+	let units = "metric";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
-axios.get(apiUrl).then(displayTemperature);
+	axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+	event.preventDefault();
+	let cityElement = document.querySelector("#city-text-input");
+	search(cityElement.value);
+}
+
+search("Montreal");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

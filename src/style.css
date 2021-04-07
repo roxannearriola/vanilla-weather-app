@@ -116,6 +116,10 @@ footer a {
 	margin-bottom: 50px;
 }
 
+#city-text-input {
+	color: white;
+}
+
 #search-button,
 #current-location {
 	background-color: transparent;
