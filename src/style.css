@@ -2,7 +2,7 @@ body {
 	background: white;
 	color: white;
 	font-family: "Lato", sans-serif;
-	margin: 0 auto;
+	margin: 30px auto;
 	max-width: 1000px;
 	text-align: center;
 }
@@ -115,6 +115,19 @@ footer a {
 .current-details {
 	margin-top: 10px;
 	margin-bottom: 50px;
+}
+
+.weather-forecast {
+	text-align: center;
+}
+
+.weather-forecast-date,
+.weather-forecast-temp-min {
+	opacity: 0.6;
+}
+
+.weather-forecast-temp {
+	font-size: 13px;
 }
 
 #city-text-input {
