@@ -68,8 +68,9 @@ function displayForecast(response) {
             <div class="weather-forecast-temp">
             <span class="weather-forecast-temp-max"
             ><strong>${Math.round(forecastDay.temp.max)}°</strong></span
-            >
-            <span class="weather-forecast-temp-min"> ${Math.round(
+						>
+						<br />
+						<span class="weather-forecast-temp-min"> ${Math.round(
 							forecastDay.temp.min
 						)}°</span>
             </div>
@@ -125,7 +126,26 @@ function handleSubmit(event) {
 	search(cityElement.value);
 }
 
+function getLocation(event) {
+	event.preventDefault();
+	navigator.geolocation.getCurrentPosition(handleCurrentPosition);
+}
+
+function handleCurrentPosition(position) {
+	let lat = position.coords.latitude;
+	let lon = position.coords.longitude;
+
+	let apiKey = "b511e89f29c4deb143d80dc884ca0735";
+	let units = "metric";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+
+	axios.get(apiUrl).then(displayTemperature);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let currentLocationButton = document.querySelector("#current-location");
+currentLocationButton.addEventListener("click", getLocation);
 
 search("Montreal");
