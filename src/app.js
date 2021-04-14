@@ -103,8 +103,8 @@ function displayTemperature(response) {
 	tempElement.innerHTML = Math.round(response.data.main.temp);
 	descriptionElement.innerHTML = response.data.weather[0].description;
 	cityElement.innerHTML = response.data.name;
-	humidityElement.innerHTML = response.data.main.humidity;
-	windElement.innerHTML = Math.round(response.data.wind.speed);
+	humidityElement.innerHTML = `${response.data.main.humidity}%`;
+	windElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
 	dateElement.innerHTML = formatDate(response.data.dt * 1000);
 	iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.png`);
 	iconElement.setAttribute("alt", response.data.weather[0].description);
